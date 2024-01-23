@@ -5,7 +5,7 @@ A search Opener for nvim inspired from `s`
 
 > for linux you need to have python installed
 
-packer:
+#### packer:
 ```lua
     use {
         'Meqr1/s.nvim',
@@ -15,7 +15,7 @@ packer:
     }
 ```
 
-lazy: 
+#### lazy: 
 ```
     {
         'Meqr1/s.nvim',
@@ -25,19 +25,19 @@ lazy:
     }
 ```
 
-how to use:
+## how to use:
 
-structure:
+#### structure:
 ```
 :S <provider> <query>
 ```
 
-example:
+#### example:
 ```
 :S duckduckgo how are you
 ```
 
-providers:
+## providers:
 
 1. google
 2. duckduckgo
