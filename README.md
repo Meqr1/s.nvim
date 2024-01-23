@@ -16,7 +16,7 @@ A search Opener for nvim inspired from `s`
 ```
 
 #### lazy: 
-```
+```lua
     {
         'Meqr1/s.nvim',
         config = function()
