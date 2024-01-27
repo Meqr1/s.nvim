@@ -25,6 +25,12 @@ A search Opener for nvim inspired from `s`
     }
 ```
 
+# Features
+- [x] simple search 
+- [x] open a URL
+- [ ] gui
+- [ ] a global provider
+
 ## how to use:
 
 #### structure:

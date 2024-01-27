@@ -1,16 +1,18 @@
 local M = {}
 
-M.checkShell = function ()
+M.checkShell = function()
   if vim.fn.has('win16') or vim.fn.has('win64') or vim.fn.has('win32') then
     return 'powershell'
+  elseif vim.fn.has('mac') or vim.fn.has('macunix') then
+    return 'bashMAC'
   else
-    return 'bash'
+    return 'bashLINUX'
   end
 end
 
-M.formatSTR = function (string, provider)
+M.formatSTR = function(string, provider)
   local inputSting = string
-  inputSting = inputSting:gsub(" ","+")
+  inputSting = inputSting:gsub(" ", "+")
 
   local baseUrls = {
     google = 'https://www.google.com/search?q=',
@@ -39,15 +41,20 @@ M.formatSTR = function (string, provider)
   return formatSTR
 end
 
-M.powershell = function (url)
+M.powershell = function(url)
   local fullCMD = "Start-Process " .. url
   fullCMD = string.gsub(fullCMD, "'", "''")
   fullCMD = "powershell -Command " .. vim.fn.shellescape(fullCMD)
   vim.fn.system(fullCMD)
 end
 
-M.bash = function (url)
+M.bash = function(url)
   local fullCMD = 'python -m webbrowser ' .. vim.fn.shellescape(url)
+  vim.fn.system(fullCMD)
+end
+
+M.mac = function(url)
+  local fullCMD = 'open ' .. vim.fn.shellescape(url)
   vim.fn.system(fullCMD)
 end
 
